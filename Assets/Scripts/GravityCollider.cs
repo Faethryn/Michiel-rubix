@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class GravityCollider : MonoBehaviour
 {
+    [SerializeField]
+    private float _gravity;
+
     private void OnTriggerEnter(Collider other)
     {
-        other.gameObject.GetComponent<CustomGravity>().GravityVector = this.gameObject.transform.up *40f;
+        if (other.gameObject.GetComponent<CustomGravity>() != null)
+        {
+
+        other.gameObject.GetComponent<CustomGravity>().GravityVector = this.gameObject.transform.up * _gravity;
+        }
     }
 }

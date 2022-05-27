@@ -9,8 +9,15 @@ public class CustomGravity : MonoBehaviour
     private Rigidbody _ownRigidBody;
 
     // Update is called once per frame
-    void Update()
+    //void Update()
+    //{
+    //    _ownRigidBody.velocity -= GravityVector * Time.deltaTime * _ownRigidBody.mass;
+    //}
+
+    private void FixedUpdate()
     {
-        _ownRigidBody.velocity -= GravityVector * Time.deltaTime * _ownRigidBody.mass;
+        //_ownRigidBody.velocity = GravityVector * Time.deltaTime * _ownRigidBody.mass;
+
+        _ownRigidBody.AddForce(-(GravityVector * Time.deltaTime * _ownRigidBody.mass));
     }
 }
